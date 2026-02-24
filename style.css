@@ -1,0 +1,1395 @@
+/* ================================================
+   UGADI 2026 — STYLESHEET
+   Color palette from official poster:
+   Cream #F2E8D0 | Forest Green #2A5C2A |
+   Accent Green #4A8040 | Terracotta #9B5E3A |
+   Light Cream #FAF3E0 | Charcoal #2C2C2C
+   ================================================ */
+
+/* --------- RESET & BASE --------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #F2E8D0;
+  color: #2C2C2C;
+  line-height: 1.75;
+}
+
+/* --------- NAVIGATION --------- */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #1B3D1B;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 48px;
+  z-index: 999;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.leaf-icon {
+  font-size: 1.4rem;
+}
+
+.brand-text {
+  font-family: 'Tiro Telugu', serif;
+  font-size: 1.1rem;
+  color: #E8D5A3;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-family: 'Lato', sans-serif;
+  color: #C8E6C9;
+  text-decoration: none;
+  font-size: 0.92rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #E8D5A3;
+}
+
+/* Hamburger (mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #C8E6C9;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* --------- HERO --------- */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #F2E8D0 0%, #E8D5A3 40%, #d4c490 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 24px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Parchment texture overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(74,128,64,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(155,94,58,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.torana {
+  font-size: 1.8rem;
+  letter-spacing: 6px;
+  margin-bottom: 32px;
+  animation: sway 3s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+@keyframes sway {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-subtitle {
+  font-family: 'Tiro Telugu', serif;
+  font-size: 1.1rem;
+  color: #4A8040;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 6rem;
+  color: #2A5C2A;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1px;
+  text-shadow: 2px 4px 12px rgba(42,92,42,0.15);
+}
+
+.hero-year {
+  display: block;
+  font-size: 4rem;
+  color: #9B5E3A;
+  font-style: italic;
+  letter-spacing: 4px;
+}
+
+.hero-tagline {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
+  color: #5A4A2A;
+  margin: 20px 0 36px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Countdown */
+.countdown-wrapper {
+  margin: 0 auto 40px;
+}
+
+.countdown-label {
+  font-size: 0.85rem;
+  color: #6B5B3A;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.count-box {
+  background: #1B3D1B;
+  border: 2px solid #4A8040;
+  border-radius: 10px;
+  padding: 16px 20px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.count-box span {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #E8D5A3;
+  line-height: 1;
+}
+
+.count-box label {
+  font-size: 0.65rem;
+  color: #8DBE8D;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 6px;
+  display: block;
+}
+
+.count-sep {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2A5C2A;
+  margin-bottom: 20px;
+}
+
+/* Button */
+.btn-primary {
+  display: inline-block;
+  background: #2A5C2A;
+  color: #FAF3E0;
+  padding: 15px 42px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 4px 16px rgba(42,92,42,0.3);
+}
+
+.btn-primary:hover {
+  background: #9B5E3A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(155,94,58,0.35);
+}
+
+.hero-leaves-bottom {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  font-size: 3rem;
+  opacity: 0.2;
+  transform: rotate(30deg);
+}
+
+/* --------- KOLAM DIVIDER --------- */
+.kolam-divider {
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  background: #F2E8D0;
+}
+
+.kolam-divider svg {
+  width: 100%;
+  max-width: 600px;
+  height: 20px;
+}
+
+/* --------- SECTIONS --------- */
+.section {
+  padding: 56px 24px;
+  background: #F2E8D0;
+}
+
+.section:nth-child(even) {
+  background: #FAF3E0;
+}
+
+.section-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  color: #2A5C2A;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.section-title::after {
+  content: '🌿';
+  display: block;
+  font-size: 1.4rem;
+  margin-top: 8px;
+}
+
+.section-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: #6B5B3A;
+  text-align: center;
+  letter-spacing: 1.5px;
+  margin-bottom: 48px;
+  font-style: italic;
+}
+
+/* --------- ABOUT SECTION --------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.about-card {
+  background: #FAF3E0;
+  border-radius: 16px;
+  padding: 36px 30px;
+  border-top: 5px solid #4A8040;
+  box-shadow: 0 4px 20px rgba(42,92,42,0.08);
+  transition: transform 0.3s;
+}
+
+.kannada-card {
+  border-top-color: #9B5E3A;
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+}
+
+.about-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.about-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #2A5C2A;
+  margin-bottom: 14px;
+}
+
+.kannada-card h3 {
+  color: #9B5E3A;
+}
+
+.about-card p {
+  font-size: 0.95rem;
+  color: #4A3C28;
+  margin-bottom: 12px;
+}
+
+.script {
+  font-family: 'Tiro Telugu', serif;
+  font-size: 1rem;
+  color: #6B8C4A;
+  margin-left: 6px;
+}
+
+.about-unity {
+  background: linear-gradient(135deg, #2A5C2A, #4A8040);
+  border-radius: 12px;
+  padding: 24px 32px;
+  text-align: center;
+}
+
+.about-unity p {
+  color: #FAF3E0;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* --------- PACHADI SECTION --------- */
+.pachadi-section {
+  background: #1B3D1B;
+}
+
+.pachadi-section .section-title {
+  color: #E8D5A3;
+}
+
+.pachadi-section .section-subtitle {
+  color: #A8C8A8;
+}
+
+.pachadi-intro {
+  text-align: center;
+  color: #C8D8B8;
+  font-size: 1rem;
+  margin: -28px auto 44px;
+  max-width: 600px;
+  font-style: italic;
+}
+
+.pachadi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.pachadi-card {
+  background: #243D24;
+  border-radius: 16px;
+  padding: 28px 22px;
+  text-align: center;
+  border: 1px solid #3D6B3D;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pachadi-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+}
+
+.pachadi-icon {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+
+.pachadi-card h4 {
+  font-family: 'Playfair Display', serif;
+  color: #E8D5A3;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.taste-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.bitter  { background: #2D5016; color: #A8D878; }
+.sweet   { background: #7A4A00; color: #FFD77A; }
+.spicy   { background: #7A1A00; color: #FF8A65; }
+.salty   { background: #1A3A5C; color: #90CAF9; }
+.sour    { background: #5C4A00; color: #FFE082; }
+.tangy   { background: #5C1A2A; color: #F48FB1; }
+
+.pachadi-card p {
+  font-size: 0.85rem;
+  color: #A8C8A8;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.taste-telugu {
+  font-family: 'Tiro Telugu', serif;
+  font-size: 0.9rem !important;
+  color: #8DBE8D !important;
+}
+
+.pachadi-quote {
+  text-align: center;
+  font-family: 'Tiro Telugu', serif;
+  font-size: 1.05rem;
+  color: #E8D5A3;
+  border-top: 1px solid #3D6B3D;
+  padding-top: 28px;
+  line-height: 2;
+}
+
+.pachadi-quote em {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #A8C8A8;
+}
+
+/* --------- EVENT SECTION --------- */
+.event-section {
+  background: #FAF3E0;
+}
+
+.event-card {
+  background: #F2E8D0;
+  border: 3px solid #9B5E3A;
+  border-radius: 20px;
+  padding: 40px 40px 40px;
+  max-width: 800px;
+  margin: 48px auto 0;
+  box-shadow: 0 8px 32px rgba(155,94,58,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* parchment inner bg */
+.event-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 28px,
+    rgba(155,94,58,0.04) 29px
+  );
+  pointer-events: none;
+}
+
+.card-torana {
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+  color: #4A8040;
+  text-align: center;
+  padding: 16px 0 20px;
+  border-bottom: 1px dashed #C4A882;
+  margin-bottom: 36px;
+}
+
+.card-torana-bottom {
+  border-bottom: none;
+  border-top: 1px dashed #C4A882;
+  margin-top: 36px;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 0;
+}
+
+.event-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.event-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #FAF3E0;
+  border-radius: 12px;
+  padding: 28px 24px;
+  border-left: 4px solid #2A5C2A;
+}
+
+.event-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.event-detail-item label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #9B5E3A;
+  margin-bottom: 4px;
+}
+
+.event-detail-item strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #2A5C2A;
+}
+
+.detail-note {
+  font-size: 0.8rem;
+  color: #7A6845;
+  font-style: italic;
+}
+
+/* Registration */
+.registration-box {
+  background: #2A5C2A;
+  border-radius: 14px;
+  padding: 32px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.registration-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #E8D5A3;
+  margin-bottom: 10px;
+}
+
+.registration-box p {
+  color: #A8C8A8;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.btn-register {
+  display: inline-block;
+  background: #E8D5A3;
+  color: #2A5C2A;
+  padding: 13px 36px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-register.coming-soon {
+  opacity: 0.75;
+  cursor: not-allowed;
+  background: #C4B882;
+}
+
+.payment-note {
+  color: #8DBE8D !important;
+  font-size: 0.82rem !important;
+  margin-top: 14px !important;
+  margin-bottom: 0 !important;
+}
+
+/* --------- GALLERY SECTION --------- */
+.gallery-section {
+  background: #F2E8D0;
+}
+
+.album-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.tab-btn {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  padding: 10px 28px;
+  border: 2px solid #4A8040;
+  background: transparent;
+  color: #2A5C2A;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tab-btn:hover {
+  background: #4A8040;
+  color: #FAF3E0;
+}
+
+.tab-btn.active {
+  background: #2A5C2A;
+  color: #FAF3E0;
+  border-color: #2A5C2A;
+}
+
+.album-grid {
+  display: none;
+}
+
+.album-grid.active {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Placeholder */
+.photo-placeholder {
+  grid-column: 1 / -1;
+  background: #FAF3E0;
+  border: 2px dashed #9B5E3A;
+  border-radius: 16px;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.placeholder-inner span {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.placeholder-inner p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #2A5C2A;
+  margin-bottom: 8px;
+}
+
+.placeholder-inner small {
+  font-size: 0.8rem;
+  color: #9B5E3A;
+}
+
+.placeholder-inner code {
+  font-size: 0.78rem;
+  background: #E8D5A3;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #5A3A1A;
+}
+
+/* Gallery photos (when photos added) */
+.album-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 3px solid #E8D5A3;
+}
+
+.album-grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(42,92,42,0.25);
+  border-color: #4A8040;
+}
+
+/* --------- LIGHTBOX --------- */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(20,40,20,0.95);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  background: none;
+  border: none;
+  color: #E8D5A3;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+#lightbox-caption {
+  color: #C8E6C9;
+  font-family: 'Lato', sans-serif;
+  margin-top: 16px;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* --------- CONTACT SECTION --------- */
+.contact-section {
+  background: #FAF3E0;
+  text-align: center;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.contact-item {
+  font-size: 1.05rem;
+  color: #2A5C2A;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 28px;
+  border: 2px solid #4A8040;
+  border-radius: 30px;
+  transition: all 0.3s;
+}
+
+.contact-item:hover {
+  background: #2A5C2A;
+  color: #FAF3E0;
+}
+
+/* --------- FOOTER --------- */
+.footer {
+  background: #1B3D1B;
+  text-align: center;
+  padding: 36px 0 30px;
+}
+
+.footer-torana {
+  font-size: 1rem;
+  letter-spacing: 4px;
+  color: #4A8040;
+  padding: 20px;
+  border-bottom: 1px solid #2D5A2D;
+  margin-bottom: 24px;
+}
+
+.footer-title {
+  font-family: 'Tiro Telugu', serif;
+  font-size: 1.2rem;
+  color: #E8D5A3;
+  margin-bottom: 8px;
+}
+
+.footer-tagline {
+  font-size: 0.88rem;
+  color: #8DBE8D;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: #5A8A5A;
+}
+
+/* --------- RESPONSIVE --------- */
+@media (max-width: 768px) {
+  #navbar {
+    padding: 14px 20px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #1B3D1B;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #2D5A2D;
+  }
+
+  .hero-title {
+    font-size: 3.8rem;
+  }
+
+  .hero-year {
+    font-size: 2.8rem;
+  }
+
+  .count-box {
+    padding: 12px 14px;
+    min-width: 64px;
+  }
+
+  .count-box span {
+    font-size: 1.6rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pachadi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .event-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card {
+    padding: 0 20px 30px;
+  }
+
+  .album-grid.active {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section {
+    padding: 60px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .pachadi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .album-grid.active {
+    grid-template-columns: 1fr;
+  }
+
+  .count-box {
+    min-width: 56px;
+    padding: 10px 10px;
+  }
+
+  .count-box span {
+    font-size: 1.4rem;
+  }
+}
+
+/* ================================================
+   TRADITIONAL DESIGN ENHANCEMENTS
+   ================================================ */
+
+/* ---- 1. Subtle traditional body texture ---- */
+body {
+  background-image:
+    radial-gradient(circle, rgba(155,94,58,0.055) 1px, transparent 1px),
+    radial-gradient(circle, rgba(74,128,64,0.04) 1px, transparent 1px);
+  background-size: 36px 36px, 18px 18px;
+  background-position: 0 0, 9px 9px;
+}
+
+/* ---- 2. Hero mandala concentric rings (rotating) ---- */
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 680px;
+  height: 680px;
+  border-radius: 50%;
+  border: 1px solid rgba(74,128,64,0.07);
+  box-shadow:
+    0 0 0 36px rgba(155,94,58,0.035),
+    0 0 0 72px rgba(74,128,64,0.035),
+    0 0 0 108px rgba(155,94,58,0.025),
+    0 0 0 144px rgba(74,128,64,0.025),
+    0 0 0 180px rgba(155,94,58,0.015),
+    0 0 0 216px rgba(74,128,64,0.015);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: mandalaRotate 90s linear infinite;
+  z-index: 0;
+}
+
+@keyframes mandalaRotate {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ---- 3. SVG Torana ---- */
+.torana-wrapper {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.torana-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 3px 6px rgba(42,92,42,0.22));
+  animation: sway 4s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+/* ---- 4. Floating leaves in hero ---- */
+.fl {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.11;
+  animation: floatLeaf linear infinite;
+  z-index: 0;
+}
+
+.fl-1 { top: 18%; left: 4%;   font-size: 2.2rem; animation-duration: 7s;  animation-delay: 0s;   }
+.fl-2 { top: 72%; left: 7%;   font-size: 1.4rem; animation-duration: 9s;  animation-delay: 1.5s; }
+.fl-3 { top: 22%; right: 5%;  font-size: 2rem;   animation-duration: 8s;  animation-delay: 3s;   }
+.fl-4 { top: 68%; right: 9%;  font-size: 1.7rem; animation-duration: 6.5s;animation-delay: 0.7s; }
+.fl-5 { top: 44%; left: 2%;   font-size: 1.3rem; animation-duration: 10s; animation-delay: 2.2s; }
+
+@keyframes floatLeaf {
+  0%,  100% { transform: translateY(0px)   rotate(0deg);  }
+  25%        { transform: translateY(-18px) rotate(12deg); }
+  50%        { transform: translateY(-8px)  rotate(-8deg); }
+  75%        { transform: translateY(-22px) rotate(6deg);  }
+}
+
+/* Ensure hero-content stays on top of floating leaves */
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- 5. Lotus Divider ---- */
+.lotus-divider {
+  width: 100%;
+  padding: 18px 0;
+  background: #F2E8D0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.lotus-divider-terracotta {
+  background: #FAF3E0;
+}
+
+.lotus-divider svg {
+  width: 100%;
+  max-width: 700px;
+  height: 55px;
+  display: inline-block;
+}
+
+/* ---- 6. Title Ornament (replaces old emoji ::after) ---- */
+.section-title::after {
+  content: none; /* Remove old emoji */
+}
+
+.title-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 2px auto 36px;
+  max-width: 460px;
+}
+
+.title-ornament .orn-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #4A8040 40%, #9B5E3A 60%, transparent);
+  border-radius: 2px;
+}
+
+.title-ornament .orn-center {
+  font-size: 1.25rem;
+  color: #9B5E3A;
+  position: relative;
+}
+
+.title-ornament .orn-center::before,
+.title-ornament .orn-center::after {
+  content: '◆';
+  font-size: 0.4rem;
+  color: #4A8040;
+  vertical-align: middle;
+  margin: 0 4px;
+  opacity: 0.7;
+}
+
+/* Pachadi section (dark bg) override */
+.pachadi-section .title-ornament .orn-line {
+  background: linear-gradient(to right, transparent, #8DBE8D 40%, #E8D5A3 60%, transparent);
+}
+
+.pachadi-section .title-ornament .orn-center {
+  color: #E8D5A3;
+}
+
+.pachadi-section .title-ornament .orn-center::before,
+.pachadi-section .title-ornament .orn-center::after {
+  color: #8DBE8D;
+}
+
+/* ---- 7. Corner ornaments on event card ---- */
+.corner-ornament {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.corner-ornament.top-left  { top: 0;    left: 0; }
+.corner-ornament.top-right { top: 0;    right: 0; transform: scaleX(-1); }
+.corner-ornament.bot-left  { bottom: 0; left: 0;  transform: scaleY(-1); }
+.corner-ornament.bot-right { bottom: 0; right: 0; transform: scale(-1, -1); }
+
+.corner-ornament svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- 8. About cards — decorative mango leaf left border ---- */
+.about-card {
+  border-left: 4px solid rgba(74,128,64,0.3);
+}
+
+.kannada-card {
+  border-left-color: rgba(155,94,58,0.3);
+}
+
+/* ---- 9. Section titles — refined appearance ---- */
+.section-title {
+  letter-spacing: 1px;
+  text-shadow: 1px 2px 8px rgba(42,92,42,0.08);
+}
+
+/* ---- 10. Pachadi section — SVG Rangoli background ---- */
+.pachadi-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Remove old plain ring pseudo-element */
+.pachadi-section::before {
+  content: none;
+}
+
+.pachadi-rangoli {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 560px;
+  height: 560px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  animation: rangoli-spin 100s linear infinite;
+}
+
+.pachadi-rangoli svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes rangoli-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Ensure pachadi content stays above rangoli */
+.pachadi-section .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- 11. Hero title shimmer effect ---- */
+.hero-title {
+  background: linear-gradient(135deg, #2A5C2A 0%, #3D7A2A 40%, #2A5C2A 70%, #4A8040 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+.hero-year {
+  -webkit-text-fill-color: #9B5E3A;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================================================
+   DYNAMIC PACHADI CARD ANIMATIONS
+   Syncing cards with the rotating rangoli background
+   ================================================ */
+
+/* 1. Card background: radial depth (not flat green) */
+.pachadi-card {
+  background: radial-gradient(ellipse at 50% 0%, #2E4E2E 0%, #1E3A1E 55%, #132210 100%);
+  overflow: hidden;
+  /* Float + glow running together, staggered per card */
+  animation: cardFloat 5s ease-in-out infinite, cardGlow 4.5s ease-in-out infinite;
+  transition: filter 0.4s ease, border-color 0.4s ease;
+}
+
+/* Staggered delays — each card bobs at a different phase */
+.pachadi-card:nth-child(1) { animation-delay: 0s,    0s;   }
+.pachadi-card:nth-child(2) { animation-delay: 0.6s,  1.0s; }
+.pachadi-card:nth-child(3) { animation-delay: 1.2s,  2.0s; }
+.pachadi-card:nth-child(4) { animation-delay: 1.8s,  3.0s; }
+.pachadi-card:nth-child(5) { animation-delay: 2.4s,  4.0s; }
+.pachadi-card:nth-child(6) { animation-delay: 3.0s,  0.5s; }
+
+/* 2. Floating (levitation) */
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-9px); }
+}
+
+/* 3. Pulsing gold border-glow (syncs with rangoli spin pace) */
+@keyframes cardGlow {
+  0%, 100% {
+    box-shadow: 0 4px 18px rgba(0,0,0,0.35),
+                0 0 0 1px rgba(212,175,55,0.08);
+  }
+  50% {
+    box-shadow: 0 10px 36px rgba(0,0,0,0.5),
+                0 0 22px 4px rgba(212,175,55,0.35),
+                0 0 48px 2px rgba(255,165,0,0.15);
+  }
+}
+
+/* 4. Hover: filter glow (avoids transform conflict with float animation) */
+.pachadi-card:hover {
+  filter: brightness(1.14) drop-shadow(0 0 20px rgba(212,175,55,0.6));
+  border-color: rgba(212,175,55,0.55);
+}
+
+/* 5. Animated gold top-edge accent — pulses like a flame */
+.pachadi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212,175,55,0.55) 15%,
+    rgba(255,215,0,1)    50%,
+    rgba(212,175,55,0.55) 85%,
+    transparent 100%
+  );
+  border-radius: 16px 16px 0 0;
+  animation: topEdgePulse 4.5s ease-in-out infinite;
+  z-index: 2;
+}
+
+.pachadi-card:nth-child(1)::before { animation-delay: 0s;    }
+.pachadi-card:nth-child(2)::before { animation-delay: 0.75s; }
+.pachadi-card:nth-child(3)::before { animation-delay: 1.5s;  }
+.pachadi-card:nth-child(4)::before { animation-delay: 2.25s; }
+.pachadi-card:nth-child(5)::before { animation-delay: 3.0s;  }
+.pachadi-card:nth-child(6)::before { animation-delay: 3.75s; }
+
+@keyframes topEdgePulse {
+  0%, 100% { opacity: 0.2; transform: scaleX(0.65); }
+  50%       { opacity: 1;   transform: scaleX(1); }
+}
+
+/* 6. Diagonal shimmer sweep (golden light passing over each card) */
+.pachadi-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 58%;
+  height: 100%;
+  background: linear-gradient(
+    108deg,
+    transparent 36%,
+    rgba(212,175,55,0.10) 48%,
+    rgba(255,235,130,0.07) 52%,
+    transparent 64%
+  );
+  animation: shimmerSweep 7s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pachadi-card:nth-child(1)::after { animation-delay: 0s;   }
+.pachadi-card:nth-child(2)::after { animation-delay: 1.2s; }
+.pachadi-card:nth-child(3)::after { animation-delay: 2.4s; }
+.pachadi-card:nth-child(4)::after { animation-delay: 3.6s; }
+.pachadi-card:nth-child(5)::after { animation-delay: 4.8s; }
+.pachadi-card:nth-child(6)::after { animation-delay: 6.0s; }
+
+@keyframes shimmerSweep {
+  0%        { left: -130%; opacity: 0; }
+  12%       { opacity: 1; }
+  42%, 100% { left: 160%; opacity: 0; }
+}
+
+/* 7. All card content stays above pseudo-elements */
+.pachadi-card > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* ---- Mobile: hide some floating elements for performance ---- */
+@media (max-width: 768px) {
+  .fl-2, .fl-4, .fl-5 { display: none; }
+
+  .torana-wrapper {
+    max-width: 100%;
+  }
+
+  .title-ornament {
+    max-width: 300px;
+  }
+
+  .corner-ornament {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+
+/* ================================================
+   PACHADI REAL PHOTO CIRCLE ICONS
+   ================================================ */
+.pachadi-icon .pachadi-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin: 0 auto 8px;
+  border: 3px solid rgba(212,175,55,0.65);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.65), 0 0 0 1px rgba(212,175,55,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pachadi-card:hover .pachadi-photo {
+  transform: scale(1.06);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.75), 0 0 12px rgba(212,175,55,0.4);
+}
+
+/* ================================================
+   GOLDEN ORNAMENT BORDER (before footer)
+   ================================================ */
+.vine-border {
+  position: relative;
+  height: 62px;
+  background: #F2E8D0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.vine-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.vine-ornament {
+  position: relative;
+  z-index: 1;
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  cursor: pointer;
+  filter: drop-shadow(0 0 4px rgba(212,175,55,0.4));
+  transition: filter 0.35s ease;
+}
+
+.vine-ornament:hover,
+.vine-ornament:focus {
+  filter: drop-shadow(0 0 14px rgba(212,175,55,1)) drop-shadow(0 0 26px rgba(255,200,50,0.5));
+  outline: none;
+}
+
+.vine-side {
+  flex: 1;
+  height: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
