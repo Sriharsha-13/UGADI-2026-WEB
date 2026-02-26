@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ugadi Feast 2026 — Book Your Coupons</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Tiro+Telugu&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ---- Sub-page hero banner ---- */
+    .sub-hero {
+      background: linear-gradient(160deg, #1B3D1B 0%, #2A5C2A 55%, #4A3010 100%);
+      padding: 110px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .sub-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(155,94,58,0.07) 1px, transparent 1px),
+        radial-gradient(circle, rgba(212,168,32,0.04) 1px, transparent 1px);
+      background-size: 36px 36px, 18px 18px;
+      background-position: 0 0, 9px 9px;
+    }
+    .sub-hero-tag {
+      display: inline-block;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #D4A820;
+      border: 1px solid rgba(212,168,32,0.4);
+      padding: 5px 18px;
+      border-radius: 40px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .sub-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #FAF3E0;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .sub-hero p {
+      font-family: 'Lato', sans-serif;
+      color: #C8B885;
+      font-size: 1.05rem;
+      position: relative;
+    }
+
+    /* ---- Steps indicator ---- */
+    .steps-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin: 40px auto 0;
+      max-width: 420px;
+    }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .step-dot {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: #2A5C2A;
+      color: #FAF3E0;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid #4A8040;
+    }
+    .step-dot.active {
+      background: #9B5E3A;
+      border-color: #C17534;
+    }
+    .step-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      color: #8DBE8D;
+      letter-spacing: 0.5px;
+    }
+    .step-line {
+      flex: 1;
+      height: 2px;
+      background: rgba(212,168,32,0.3);
+      margin-bottom: 22px;
+      min-width: 48px;
+    }
+
+    /* ---- Coupon cards ---- */
+    .coupon-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 32px 0;
+    }
+    .coupon-card {
+      border: 2px solid #C8B885;
+      border-radius: 14px;
+      padding: 24px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      background: #FAF3E0;
+      position: relative;
+    }
+    .coupon-card:hover,
+    .coupon-card.selected {
+      border-color: #9B5E3A;
+      background: #FFF7EC;
+      transform: translateY(-3px);
+    }
+    .coupon-card input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .coupon-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: #2A5C2A;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .coupon-price {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #9B5E3A;
+      margin-bottom: 8px;
+    }
+    .coupon-desc {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      color: #6A5A40;
+      line-height: 1.5;
+    }
+
+    /* ---- Form ---- */
+    .feast-form {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    .form-group label {
+      display: block;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #2A5C2A;
+      letter-spacing: 0.5px;
+      margin-bottom: 7px;
+      text-transform: uppercase;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid #C8B885;
+      border-radius: 8px;
+      background: #FAF3E0;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      color: #2C2C2C;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus {
+      border-color: #2A5C2A;
+    }
+    .form-hint {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      color: #7A6A50;
+      margin-top: 5px;
+    }
+    .form-submit {
+      text-align: center;
+      margin-top: 32px;
+    }
+    .form-submit button {
+      background: #2A5C2A;
+      color: #FAF3E0;
+      border: none;
+      padding: 15px 52px;
+      border-radius: 40px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(42,92,42,0.3);
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    }
+    .form-submit button:hover {
+      background: #9B5E3A;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(155,94,58,0.35);
+    }
+    .support-note {
+      margin-top: 20px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      color: #7A6A50;
+      text-align: center;
+    }
+    .support-note a {
+      color: #9B5E3A;
+      text-decoration: none;
+    }
+    .support-note a:hover { text-decoration: underline; }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 768px) {
+      .sub-hero h1 { font-size: 2.1rem; }
+      .coupon-grid { grid-template-columns: 1fr; }
+      .steps-bar { max-width: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-brand">
+      <span class="leaf-icon"><svg viewBox="0 0 16 28" width="16" height="28" xmlns="http://www.w3.org/2000/svg"><path d="M8,1 C12,2 15,10 15,17 C15,23 12,27 8,27 C4,27 1,23 1,17 C1,10 4,2 8,1 Z" fill="#5ABB40"/><line x1="8" y1="2" x2="8" y2="26" stroke="rgba(10,50,5,0.35)" stroke-width="0.8"/></svg></span>
+      <span class="brand-text">ఉగాది · ಯುಗಾದಿ</span>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#highlights">Highlights</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#pachadi">Pachadi</a></li>
+      <li><a href="index.html#event">Event</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO BANNER -->
+  <div class="sub-hero">
+    <p class="sub-hero-tag">March 19–21, 2026 · IISER Kolkata</p>
+    <h1>Ugadi Feast 2026</h1>
+    <p>Telugu Bhojanam — A Feast of Tradition &amp; Flavour</p>
+
+    <!-- Steps bar -->
+    <div class="steps-bar">
+      <div class="step">
+        <div class="step-dot active">1</div>
+        <span class="step-label">Details</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-dot">2</div>
+        <span class="step-label">Payment</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-dot">3</div>
+        <span class="step-label">Verification</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOTUS DIVIDER -->
+  <div class="lotus-divider">
+    <svg viewBox="0 0 700 55" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="27" x2="310" y2="27" stroke="#4A8040" stroke-width="1.2" opacity="0.5"/>
+      <circle cx="55"  cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <circle cx="110" cy="27" r="2" fill="#4A8040" opacity="0.5"/>
+      <circle cx="165" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <circle cx="220" cy="27" r="2" fill="#4A8040" opacity="0.5"/>
+      <circle cx="275" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <g transform="translate(350,27)">
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(45)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(135)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(225)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(270)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(315)"/>
+        <circle r="8" fill="#E8D5A3"/>
+        <circle r="4.5" fill="#9B5E3A"/>
+        <circle r="2" fill="#FAF3E0"/>
+      </g>
+      <line x1="390" y1="27" x2="700" y2="27" stroke="#4A8040" stroke-width="1.2" opacity="0.5"/>
+      <circle cx="425" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <circle cx="480" cy="27" r="2" fill="#4A8040" opacity="0.5"/>
+      <circle cx="535" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <circle cx="590" cy="27" r="2" fill="#4A8040" opacity="0.5"/>
+      <circle cx="645" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+    </svg>
+  </div>
+
+  <!-- REGISTRATION FORM SECTION -->
+  <section class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Reserve Your Seat</h2>
+      <div class="title-ornament">
+        <span class="orn-line"></span>
+        <span class="orn-center">❈</span>
+        <span class="orn-line"></span>
+      </div>
+      <p class="section-subtitle">Select your coupon and fill in your details</p>
+
+      <!-- Coupon Selection -->
+      <div class="coupon-grid">
+        <label class="coupon-card selected" id="coupon-student">
+          <input type="radio" name="coupon" value="student" checked />
+          <div class="coupon-name">Student Coupon</div>
+          <div class="coupon-price">₹160</div>
+          <div class="coupon-desc">For IISER Kolkata students with valid roll number</div>
+        </label>
+        <label class="coupon-card" id="coupon-family">
+          <input type="radio" name="coupon" value="family" />
+          <div class="coupon-name">Family Coupon</div>
+          <div class="coupon-price">₹500</div>
+          <div class="coupon-desc">For families and guests accompanying a student</div>
+        </label>
+        <label class="coupon-card" id="coupon-patron">
+          <input type="radio" name="coupon" value="patron" />
+          <div class="coupon-name">Supportive Patron</div>
+          <div class="coupon-price">₹1000</div>
+          <div class="coupon-desc">Support the Ugadi celebrations and community</div>
+        </label>
+      </div>
+
+      <!-- Form -->
+      <form class="feast-form" id="feast-form">
+        <div class="form-group">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required />
+        </div>
+        <div class="form-group">
+          <label for="roll-number">Roll Number</label>
+          <input type="text" id="roll-number" name="roll-number" placeholder="e.g. MS24001" />
+          <p class="form-hint">Required for Student Coupon. Leave blank for Family / Patron.</p>
+        </div>
+        <div class="form-group">
+          <label for="email">Personal Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="buyer-email">Buyer Email Address</label>
+          <input type="email" id="buyer-email" name="buyer-email" placeholder="Same as above, or different" />
+          <p class="form-hint">Fill only if the payment will be made from a different email.</p>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit">Proceed to Payment</button>
+          <p class="support-note">
+            Having trouble? Contact the Ugadi Committee at
+            <a href="mailto:ugadi2026@example.com">ugadi2026@example.com</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-title"><svg viewBox="0 0 14 24" width="14" height="24" style="display:inline-block;vertical-align:middle;margin-right:5px" xmlns="http://www.w3.org/2000/svg"><path d="M7,1 C10,2 13,8 13,14 C13,20 10,23 7,23 C4,23 1,20 1,14 C1,8 4,2 7,1 Z" fill="#5ABB40"/><line x1="7" y1="2" x2="7" y2="22" stroke="rgba(10,50,5,0.3)" stroke-width="0.8"/></svg>ఉగాది 2026 · ಯುಗಾದಿ 2026</p>
+      <p class="footer-tagline">Celebrating Telugu &amp; Kannada New Year Together</p>
+      <p class="footer-copy">&copy; 2026 Ugadi Celebration Committee. IISER Kolkata Campus, Mohanpur, West Bengal – 741246</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+        });
+      });
+    }
+
+    // Coupon card selection highlight
+    document.querySelectorAll('.coupon-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.coupon-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+      });
+    });
+  </script>
+</body>
+</html>

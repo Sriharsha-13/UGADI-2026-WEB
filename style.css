@@ -313,6 +313,75 @@ body {
   font-style: italic;
 }
 
+/* --------- HIGHLIGHTS SECTION --------- */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.highlight-card {
+  background: #FAF3E0;
+  border-radius: 16px;
+  padding: 36px 28px;
+  box-shadow: 0 4px 20px rgba(42,92,42,0.08);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  border-top: 5px solid #9B5E3A;
+}
+.highlight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 32px rgba(42,92,42,0.15);
+}
+.feast-card     { border-top-color: #9B5E3A; }
+.culturals-card { border-top-color: #2A5C2A; }
+.sports-card    { border-top-color: #D4A820; }
+
+.highlight-icon {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.feast-icon     { background: rgba(155,94,58,0.12); }
+.culturals-icon { background: rgba(42,92,42,0.10); }
+.sports-icon    { background: rgba(212,168,32,0.12); }
+
+.highlight-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: #2A5C2A;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.highlight-card p {
+  font-family: 'Lato', sans-serif;
+  color: #4A3C28;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  flex: 1;
+}
+.highlight-btn {
+  margin-top: 20px;
+  display: inline-block;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  color: #9B5E3A;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.highlight-card:hover .highlight-btn { color: #2A5C2A; }
+
 /* --------- ABOUT SECTION --------- */
 .about-grid {
   display: grid;
@@ -382,7 +451,14 @@ body {
 
 /* --------- PACHADI SECTION --------- */
 .pachadi-section {
-  background: #1B3D1B;
+  background: linear-gradient(
+    180deg,
+    #152E15 0%,
+    #1B3D1B 18%,
+    #243D24 45%,
+    #1E4220 72%,
+    #152E15 100%
+  ) !important;
 }
 
 .pachadi-section .section-title {
@@ -426,6 +502,16 @@ body {
 .pachadi-icon {
   font-size: 2.4rem;
   margin-bottom: 12px;
+}
+
+.pachadi-photo {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(212,175,55,0.6);
+  display: block;
+  margin: 0 auto;
 }
 
 .pachadi-card h4 {
@@ -817,6 +903,35 @@ body {
   margin-bottom: 24px;
 }
 
+.footer-ornament {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.footer-orn-line {
+  display: inline-block;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,32,0.5));
+}
+.footer-orn-line:last-child {
+  background: linear-gradient(to left, transparent, rgba(212,168,32,0.5));
+}
+.footer-orn-center {
+  color: #D4A820;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+.footer-greeting {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: #C8B885;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
 .footer-title {
   font-family: 'Tiro Telugu', serif;
   font-size: 1.2rem;
@@ -886,6 +1001,10 @@ body {
   }
 
   .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlights-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1192,16 +1311,16 @@ body {
    Syncing cards with the rotating rangoli background
    ================================================ */
 
-/* 1. Card background: radial depth (not flat green) */
+/* 1. Card background: nice dark green */
 .pachadi-card {
-  background: radial-gradient(ellipse at 50% 0%, #2E4E2E 0%, #1E3A1E 55%, #132210 100%);
+  background: #243D24;
   overflow: hidden;
   /* Float + glow running together, staggered per card */
   animation: cardFloat 5s ease-in-out infinite, cardGlow 4.5s ease-in-out infinite;
   transition: filter 0.4s ease, border-color 0.4s ease;
 }
 
-/* Staggered delays — each card bobs at a different phase */
+/* Staggered delays per card */
 .pachadi-card:nth-child(1) { animation-delay: 0s,    0s;   }
 .pachadi-card:nth-child(2) { animation-delay: 0.6s,  1.0s; }
 .pachadi-card:nth-child(3) { animation-delay: 1.2s,  2.0s; }
@@ -1393,3 +1512,4 @@ body {
   z-index: 1;
   overflow: visible;
 }
+

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sangeeth &amp; Culturals — Ugadi 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Tiro+Telugu&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ---- Sub-page hero banner ---- */
+    .sub-hero {
+      background: linear-gradient(160deg, #1B3D1B 0%, #2A5C2A 60%, #1B3D1B 100%);
+      padding: 110px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .sub-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(212,168,32,0.06) 1px, transparent 1px),
+        radial-gradient(circle, rgba(155,94,58,0.04) 1px, transparent 1px);
+      background-size: 36px 36px, 18px 18px;
+      background-position: 0 0, 9px 9px;
+    }
+    .sub-hero-tag {
+      display: inline-block;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #D4A820;
+      border: 1px solid rgba(212,168,32,0.4);
+      padding: 5px 18px;
+      border-radius: 40px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .sub-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #FAF3E0;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .sub-hero p {
+      font-family: 'Lato', sans-serif;
+      color: #C8B885;
+      font-size: 1.05rem;
+      position: relative;
+    }
+
+    /* ---- Info + Guidelines boxes ---- */
+    .info-boxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+    .info-box {
+      background: #FAF3E0;
+      border-radius: 14px;
+      padding: 28px 26px;
+      border-left: 5px solid #2A5C2A;
+      box-shadow: 0 4px 16px rgba(42,92,42,0.08);
+    }
+    .info-box.guidelines {
+      border-left-color: #9B5E3A;
+    }
+    .info-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: #2A5C2A;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .info-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .info-box ul li {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      color: #4A3C28;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(155,94,58,0.1);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .info-box ul li:last-child { border-bottom: none; }
+    .info-box ul li::before {
+      content: '·';
+      color: #9B5E3A;
+      font-size: 1.4rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .info-box p {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      color: #4A3C28;
+      line-height: 1.65;
+    }
+
+    /* ---- Schedule table ---- */
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    .schedule-table thead th {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #FAF3E0;
+      background: #2A5C2A;
+      padding: 14px 18px;
+      text-align: left;
+    }
+    .schedule-table thead th:first-child { border-radius: 8px 0 0 0; }
+    .schedule-table thead th:last-child  { border-radius: 0 8px 0 0; }
+    .schedule-table tbody tr {
+      transition: background 0.2s;
+    }
+    .schedule-table tbody tr:nth-child(odd) {
+      background: #FAF3E0;
+    }
+    .schedule-table tbody tr:nth-child(even) {
+      background: #F2E8D0;
+    }
+    .schedule-table tbody tr:hover {
+      background: #EDE0C0;
+    }
+    .schedule-table td {
+      padding: 14px 18px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      color: #2C2C2C;
+      border-bottom: 1px solid rgba(155,94,58,0.12);
+      vertical-align: middle;
+    }
+    .schedule-table td:first-child {
+      font-weight: 700;
+      color: #9B5E3A;
+      white-space: nowrap;
+    }
+    .schedule-table td:nth-child(2) {
+      color: #2A5C2A;
+      font-weight: 600;
+    }
+    .batch-badge {
+      display: inline-block;
+      background: rgba(42,92,42,0.1);
+      color: #2A5C2A;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(42,92,42,0.2);
+    }
+    .finale-row td {
+      background: #2A5C2A !important;
+      color: #FAF3E0 !important;
+      font-weight: 700;
+    }
+    .finale-row td:first-child { color: #D4A820 !important; }
+    .finale-row td:nth-child(2) { color: #FAF3E0 !important; }
+    .finale-row .batch-badge {
+      background: rgba(212,168,32,0.2);
+      color: #D4A820;
+      border-color: rgba(212,168,32,0.4);
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 768px) {
+      .sub-hero h1 { font-size: 2.1rem; }
+      .info-boxes { grid-template-columns: 1fr; }
+      .schedule-table { font-size: 0.82rem; }
+      .schedule-table td, .schedule-table th { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-brand">
+      <span class="leaf-icon"><svg viewBox="0 0 16 28" width="16" height="28" xmlns="http://www.w3.org/2000/svg"><path d="M8,1 C12,2 15,10 15,17 C15,23 12,27 8,27 C4,27 1,23 1,17 C1,10 4,2 8,1 Z" fill="#5ABB40"/><line x1="8" y1="2" x2="8" y2="26" stroke="rgba(10,50,5,0.35)" stroke-width="0.8"/></svg></span>
+      <span class="brand-text">ఉగాది · ಯುಗಾದಿ</span>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#highlights">Highlights</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#pachadi">Pachadi</a></li>
+      <li><a href="index.html#event">Event</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO BANNER -->
+  <div class="sub-hero">
+    <p class="sub-hero-tag">March 21, 2026 · Main Auditorium, IISER-K</p>
+    <h1>Sangeeth &amp; Culturals</h1>
+    <p>A celebration of talent, rhythm, and heritage</p>
+  </div>
+
+  <!-- LOTUS DIVIDER -->
+  <div class="lotus-divider">
+    <svg viewBox="0 0 700 55" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="27" x2="310" y2="27" stroke="#4A8040" stroke-width="1.2" opacity="0.5"/>
+      <circle cx="55"  cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <circle cx="110" cy="27" r="2" fill="#4A8040" opacity="0.5"/>
+      <circle cx="165" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <circle cx="220" cy="27" r="2" fill="#4A8040" opacity="0.5"/>
+      <circle cx="275" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <g transform="translate(350,27)">
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(45)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(135)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(225)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(270)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(315)"/>
+        <circle r="8" fill="#E8D5A3"/>
+        <circle r="4.5" fill="#9B5E3A"/>
+        <circle r="2" fill="#FAF3E0"/>
+      </g>
+      <line x1="390" y1="27" x2="700" y2="27" stroke="#4A8040" stroke-width="1.2" opacity="0.5"/>
+      <circle cx="425" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <circle cx="480" cy="27" r="2" fill="#4A8040" opacity="0.5"/>
+      <circle cx="535" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <circle cx="590" cy="27" r="2" fill="#4A8040" opacity="0.5"/>
+      <circle cx="645" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+    </svg>
+  </div>
+
+  <!-- EVENT DETAILS + GUIDELINES -->
+  <section class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Event Details</h2>
+      <div class="title-ornament">
+        <span class="orn-line"></span>
+        <span class="orn-center">❈</span>
+        <span class="orn-line"></span>
+      </div>
+      <p class="section-subtitle">Everything you need to know before the evening</p>
+
+      <div class="info-boxes">
+        <div class="info-box">
+          <h3>
+            <svg viewBox="0 0 20 20" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="3" width="16" height="15" rx="2" fill="none" stroke="#2A5C2A" stroke-width="1.5"/>
+              <line x1="6" y1="1" x2="6" y2="5" stroke="#9B5E3A" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="14" y1="1" x2="14" y2="5" stroke="#9B5E3A" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="2" y1="8" x2="18" y2="8" stroke="#4A8040" stroke-width="1" opacity="0.5"/>
+              <circle cx="7" cy="12" r="1.5" fill="#9B5E3A"/>
+              <circle cx="13" cy="12" r="1.5" fill="#9B5E3A"/>
+            </svg>
+            Date, Time &amp; Venue
+          </h3>
+          <ul>
+            <li>Date: March 21, 2026</li>
+            <li>Time: 06:00 PM Onwards</li>
+            <li>Venue: Main Auditorium, IISER-K</li>
+          </ul>
+        </div>
+
+        <div class="info-box guidelines">
+          <h3>
+            <svg viewBox="0 0 20 20" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8" fill="none" stroke="#9B5E3A" stroke-width="1.5"/>
+              <line x1="10" y1="7" x2="10" y2="11" stroke="#9B5E3A" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="10" cy="14" r="1.2" fill="#9B5E3A"/>
+            </svg>
+            Performer Guidelines
+          </h3>
+          <p>All performers are requested to report to the green room <strong>30 minutes</strong> before their scheduled time. Please submit your music tracks to the technical team by <strong>March 18th</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOTUS DIVIDER -->
+  <div class="lotus-divider">
+    <svg viewBox="0 0 700 55" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="27" x2="310" y2="27" stroke="#4A8040" stroke-width="1.2" opacity="0.5"/>
+      <circle cx="55"  cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <circle cx="110" cy="27" r="2" fill="#4A8040" opacity="0.5"/>
+      <circle cx="165" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <circle cx="220" cy="27" r="2" fill="#4A8040" opacity="0.5"/>
+      <circle cx="275" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <g transform="translate(350,27)">
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(45)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(135)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(225)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(270)"/>
+        <ellipse cx="0" cy="-14" rx="6" ry="13" fill="#C17534" opacity="0.72" transform="rotate(315)"/>
+        <circle r="8" fill="#E8D5A3"/>
+        <circle r="4.5" fill="#9B5E3A"/>
+        <circle r="2" fill="#FAF3E0"/>
+      </g>
+      <line x1="390" y1="27" x2="700" y2="27" stroke="#4A8040" stroke-width="1.2" opacity="0.5"/>
+      <circle cx="425" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <circle cx="480" cy="27" r="2" fill="#4A8040" opacity="0.5"/>
+      <circle cx="535" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+      <circle cx="590" cy="27" r="2" fill="#4A8040" opacity="0.5"/>
+      <circle cx="645" cy="27" r="3" fill="#9B5E3A" opacity="0.55"/>
+    </svg>
+  </div>
+
+  <!-- PROGRAM SCHEDULE -->
+  <section class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Program Schedule</h2>
+      <div class="title-ornament">
+        <span class="orn-line"></span>
+        <span class="orn-center">❈</span>
+        <span class="orn-line"></span>
+      </div>
+      <p class="section-subtitle">An evening of performances celebrating our culture</p>
+
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Event</th>
+            <th>Performers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>06:30 PM</td>
+            <td>Inaugural Dance (Classical)</td>
+            <td><span class="batch-badge">Combined Batches</span></td>
+          </tr>
+          <tr>
+            <td>06:45 PM</td>
+            <td>Traditional Song — Ugadi Special</td>
+            <td><span class="batch-badge">MS24 Batch</span></td>
+          </tr>
+          <tr>
+            <td>07:00 PM</td>
+            <td>Skit: Life in a Telugu Village</td>
+            <td><span class="batch-badge">MS23 Batch</span></td>
+          </tr>
+          <tr>
+            <td>07:20 PM</td>
+            <td>Folk Dance (Teenmar)</td>
+            <td><span class="batch-badge">MS25 Batch</span></td>
+          </tr>
+          <tr>
+            <td>07:40 PM</td>
+            <td>Instrumental Performance</td>
+            <td><span class="batch-badge">MS21 Batch</span></td>
+          </tr>
+          <tr>
+            <td>08:00 PM</td>
+            <td>Group Song</td>
+            <td><span class="batch-badge">PhD Batches</span></td>
+          </tr>
+          <tr>
+            <td>08:15 PM</td>
+            <td>Contemporary Fusion Dance</td>
+            <td><span class="batch-badge">MS22 Batch</span></td>
+          </tr>
+          <tr>
+            <td>08:35 PM</td>
+            <td>Solo Performances</td>
+            <td><span class="batch-badge">Various</span></td>
+          </tr>
+          <tr class="finale-row">
+            <td>09:00 PM</td>
+            <td>Grand Finale</td>
+            <td><span class="batch-badge">All Participants</span></td>
+          </tr>
+          <tr>
+            <td>09:15 PM</td>
+            <td>Vote of Thanks &amp; Dinner</td>
+            <td><span class="batch-badge">Committee</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-title"><svg viewBox="0 0 14 24" width="14" height="24" style="display:inline-block;vertical-align:middle;margin-right:5px" xmlns="http://www.w3.org/2000/svg"><path d="M7,1 C10,2 13,8 13,14 C13,20 10,23 7,23 C4,23 1,20 1,14 C1,8 4,2 7,1 Z" fill="#5ABB40"/><line x1="7" y1="2" x2="7" y2="22" stroke="rgba(10,50,5,0.3)" stroke-width="0.8"/></svg>ఉగాది 2026 · ಯುಗಾದಿ 2026</p>
+      <p class="footer-tagline">Celebrating Telugu &amp; Kannada New Year Together</p>
+      <p class="footer-copy">&copy; 2026 Ugadi Celebration Committee. IISER Kolkata Campus, Mohanpur, West Bengal – 741246</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
